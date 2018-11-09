@@ -13,11 +13,12 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+#include "policy_table.hpp"
+
 #include <experimental/filesystem>
 #include <fstream>
 #include <nlohmann/json.hpp>
 #include <phosphor-logging/log.hpp>
-#include "policy_table.hpp"
 
 namespace ibm
 {
@@ -76,8 +77,8 @@ void Table::load(const std::string& jsonFile)
     }
 }
 
-optional_ns::optional<DetailsReference>
-    Table::find(const std::string& error, const std::string& modifier) const
+FindResult Table::find(const std::string& error,
+                       const std::string& modifier) const
 {
     // First find the entry based on the error, and then find which
     // underlying details object it is with the help of the modifier.
@@ -107,6 +108,6 @@ optional_ns::optional<DetailsReference>
 
     return {};
 }
-}
-}
-}
+} // namespace policy
+} // namespace logging
+} // namespace ibm

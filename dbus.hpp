@@ -64,7 +64,7 @@ ObjectValueTree getManagedObjects(sdbusplus::bus::bus& bus,
  *                       services and interfaces.
  */
 DbusSubtree getSubtree(sdbusplus::bus::bus& bus, const std::string& root,
-                       size_t depth, const std::string& interface);
+                       int depth, const std::string& interface);
 
 /**
  * Get the D-Bus service name for the object path and interface from
@@ -98,5 +98,5 @@ DbusPropertyMap getAllProperties(sdbusplus::bus::bus& bus,
                                  const std::string& service,
                                  const std::string& objPath,
                                  const std::string& interface);
-}
-}
+} // namespace logging
+} // namespace ibm

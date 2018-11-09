@@ -13,8 +13,9 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-#include <phosphor-logging/log.hpp>
 #include "dbus.hpp"
+
+#include <phosphor-logging/log.hpp>
 
 namespace ibm
 {
@@ -82,7 +83,7 @@ DbusPropertyMap getAllProperties(sdbusplus::bus::bus& bus,
 }
 
 DbusSubtree getSubtree(sdbusplus::bus::bus& bus, const std::string& root,
-                       size_t depth, const std::string& interface)
+                       int depth, const std::string& interface)
 {
     DbusSubtree tree;
 
@@ -129,5 +130,5 @@ DbusService getService(const std::string& objPath, const std::string& interface,
 
     return service;
 }
-}
-}
+} // namespace logging
+} // namespace ibm
